@@ -17,8 +17,8 @@
     "branch-alias": {
       "dev-master": "2.0.x-dev"
     },
-    "sconfig-plugin": {
-      "process": "config/process.php"
+    "config-plugin": {
+      "moduleProcess": "config/moduleProcess.php"
     }
   }
 }
