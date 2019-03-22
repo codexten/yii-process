@@ -1,0 +1,21 @@
+{
+  "name": "codexten/yii-process",
+  "description": "codexten,yii,process",
+  "keywords": [
+    "codexten"
+  ],
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "codextend\\yii\\process\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    },
+    "sconfig-plugin": {
+      "process": "config/process.php"
+    }
+  }
+}
