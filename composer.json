@@ -5,6 +5,9 @@
     "codexten"
   ],
   "type": "library",
+  "require": {
+    "cocur/background-process": "*"
+  },
   "autoload": {
     "psr-4": {
       "codextend\\yii\\process\\": "src"
