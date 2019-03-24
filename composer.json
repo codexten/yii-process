@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "codextend\\yii\\process\\": "src"
+      "codexten\\yii\\process\\": "src"
     }
   },
   "extra": {
