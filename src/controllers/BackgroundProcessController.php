@@ -27,7 +27,9 @@ class BackgroundProcessController extends CrudController
 
     public function actionRun($id)
     {
-        return $this->findOne($id)->run();
+        if ($this->findOne($id)->run()) {
+            return $this->redirect('index');
+        }
     }
 
 }

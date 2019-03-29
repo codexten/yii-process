@@ -28,7 +28,14 @@ $this->title = Yii::t('app', 'Background Processes');
     'filterModel' => $searchModel,
     'columns' => [
         'name',
-        'pid',
+        [
+            'attribute' => 'pid',
+            'value' => function ($model) {
+                /* @var $model BackgroundProcess */
+
+                return $model->isRunning() ? $model->pid : '';
+            },
+        ],
         'comment',
         'run_command',
         'status',

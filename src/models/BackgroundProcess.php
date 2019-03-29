@@ -142,13 +142,13 @@ class BackgroundProcess extends \codexten\yii\db\ActiveRecord
 
         $process = Process::createFromPID($this->pid);
 
-        return $proces->isRunning();
+        return $process->isRunning();
 
     }
 
     public function getLogFile()
     {
-        return Yii::getAlias("@runtime/logs/{$this->id}.log");
+        return Yii::getAlias("@runtime/{$this->id}.log");
     }
 
     public function canRun()
@@ -162,18 +162,16 @@ class BackgroundProcess extends \codexten\yii\db\ActiveRecord
 
     public function run()
     {
-        if ($this->canRun()) {
+        if (!$this->canRun()) {
             return false;
         }
-        $process = new Process('sleep 150');
-        if ($process->run($this->getLogFile(), true)) {
-            $this->pid = $process->getPid();
-            $this->save(false);
+        $process = new Process($this->run_command);
 
-            return true;
-        }
+        $process->run($this->getLogFile(), true);
+        $this->pid = $process->getPid();
+        $this->save(false);
 
-        return false;
+        return true;
     }
 
     public function stop()
