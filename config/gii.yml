@@ -1,0 +1,17 @@
+config:
+  messageCategory: codexten:process
+migration:
+  create_background_process_table:
+    fields: |
+      name:string(255),
+      pid:integer(11),
+      comment:string(255),
+      run_command:text,
+      status:smallInteger,
+      created_at:integer(11),
+      updated_at:integer(11)
+model:
+  background_process:
+crud:
+  background_process:
+    modelClass: codexten\yii\process\models\BackgroundProcess

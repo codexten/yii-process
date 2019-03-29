@@ -18,7 +18,8 @@
       "dev-master": "2.0.x-dev"
     },
     "config-plugin": {
-      "moduleProcess": "config/moduleProcess.php"
+      "moduleProcess": "config/moduleProcess.php",
+      "migrationNamespaces": "config/migrationNamespaces.php"
     }
   }
 }

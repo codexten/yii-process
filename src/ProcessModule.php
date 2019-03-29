@@ -13,5 +13,6 @@ use codexten\yii\base\Module;
 
 class ProcessModule extends Module
 {
+    public $defaultRoute = 'background-process';
 
 }
