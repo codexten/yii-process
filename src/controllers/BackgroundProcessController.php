@@ -32,4 +32,20 @@ class BackgroundProcessController extends CrudController
         }
     }
 
+    public function actionRestart($id)
+    {
+        $this->findOne($id)->restart();
+
+        return $this->redirect('index');
+
+    }
+
+    public function actionStop($id)
+    {
+        $this->findOne($id)->stop();
+
+        return $this->redirect('index');
+
+    }
+
 }

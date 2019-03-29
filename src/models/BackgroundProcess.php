@@ -184,6 +184,30 @@ class BackgroundProcess extends \codexten\yii\db\ActiveRecord
         return $process->stop();
     }
 
+    public function canRestart()
+    {
+        if ($this->isRunning()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function canStop()
+    {
+        if ($this->isRunning()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function restart()
+    {
+        $this->stop();
+        $this->run();
+    }
+
     /**
      * {@inheritdoc}
      * @return \codexten\yii\process\models\query\BackgroundProcessQuery the active query used by this AR class.

@@ -42,13 +42,31 @@ $this->title = Yii::t('app', 'Background Processes');
         [
             'class' => 'yii\grid\ActionColumn',
             'options' => ['style' => 'width: 5%'],
-            'template' => '{run} {update} {delete}',
+            'template' => '{run} {restart} {stop} {update} {delete}',
             'buttons' => [
                 'run' => function ($url, $model, $key) {
                     /* @var $model BackgroundProcess */
                     if ($model->canRun()) {
                         return Html::a('<i class="fa fa-play"></i>',
                             ['/process/background-process/run', 'id' => $model->id]);
+                    }
+
+                    return false;
+                },
+                'restart' => function ($url, $model, $key) {
+                    /* @var $model BackgroundProcess */
+                    if ($model->canRestart()) {
+                        return Html::a('<i class="fa fa-repeat"></i>',
+                            ['/process/background-process/restart', 'id' => $model->id]);
+                    }
+
+                    return false;
+                },
+                'stop' => function ($url, $model, $key) {
+                    /* @var $model BackgroundProcess */
+                    if ($model->canStop()) {
+                        return Html::a('<i class="fa fa-stop"></i>',
+                            ['/process/background-process/stop', 'id' => $model->id]);
                     }
 
                     return false;
