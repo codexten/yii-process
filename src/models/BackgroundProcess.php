@@ -165,9 +165,10 @@ class BackgroundProcess extends \codexten\yii\db\ActiveRecord
         if (!$this->canRun()) {
             return false;
         }
+        ob_start();
         $process = new Process($this->run_command);
-
         $process->run($this->getLogFile(), true);
+        ob_get_clean();
         $this->pid = $process->getPid();
         $this->save(false);
 
